@@ -1,0 +1,6 @@
+# Ignore build output
+build/
+
+# Ignore generated files (if any)
+captures/
+outputs/
