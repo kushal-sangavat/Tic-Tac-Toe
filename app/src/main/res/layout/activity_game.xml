@@ -161,6 +161,6 @@
         android:text="Design by\n Sangavat Group"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="13dp"/>
+        android:layout_marginBottom="25dp"/>
 
 </FrameLayout>
