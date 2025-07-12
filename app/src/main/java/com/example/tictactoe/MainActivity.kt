@@ -20,11 +20,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         binding.playOfflineBtn.setOnClickListener {
             createOfflineGame()
@@ -40,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createOnlineGame() {
+        GameData.myID = "X"
         GameData.saveGameModel(
             GameModel(
                 gameStatus = GameStatus.CREATED,
@@ -50,14 +46,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createOfflineGame() {
-        GameData.myID = "X"
         GameData.saveGameModel(
             GameModel(
+                gameId = "-1",
                 gameStatus = GameStatus.JOINED,
             )
         )
         startGame()
-
     }
 
     fun joinOnlineGame() {

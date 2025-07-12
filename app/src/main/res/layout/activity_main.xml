@@ -6,71 +6,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:layout_margin="16dp"
     android:orientation="vertical"
+    android:background="@color/material_dynamic_neutral90"
     tools:context=".MainActivity">
 
-    <TextView
+    <View
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textStyle="bold"
-        android:textSize="28sp"
-        android:layout_margin="8dp"
-        android:padding="8dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1.5"/>
 
-    <Button
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/playOfflineBtn"
-        android:text="Play Offline"
-        android:layout_margin="8dp"
-        android:padding="8dp"/>
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:elevation="12dp"
+        app:cardCornerRadius="30dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="or"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_margin="8dp"
-        android:padding="8dp"/>
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/create_online_game_btn"
-        android:text="Create Game Online"
-        android:layout_margin="8dp"
-        android:padding="8dp"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="25dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_margin="8dp"
+            android:padding="8dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/playOfflineBtn"
+            android:text="Play Offline"
+            android:textSize="16sp"
+            android:layout_margin="8dp"
+            android:padding="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="or"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_margin="8dp"
+            android:padding="8dp"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_online_game_btn"
+            android:text="Create Game Online"
+            android:textSize="16sp"
+            android:layout_margin="8dp"
+            android:padding="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="or"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_margin="8dp"
+            android:padding="8dp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/game_id_input"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:inputType="number"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:hint="Enter Game ID"
+            android:gravity="center"
+            android:letterSpacing="0.10"
+            android:maxLength="4"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/join_online_game_btn"
+            android:text="Join Game Online"
+            android:textSize="16sp"
+            android:layout_margin="8dp"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="or"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_margin="8dp"
-        android:padding="8dp"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/game_id_input"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:inputType="number"
-        android:layout_margin="8dp"
-        android:padding="8dp"
-        android:hint="Enter Game ID"/>
-
-    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/join_online_game_btn"
-        android:text="Join Game Online"
-        android:layout_margin="8dp"
-        android:padding="8dp"/>
+        android:text="Design by\n Sangavat Group"
+        android:textAlignment="center"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 

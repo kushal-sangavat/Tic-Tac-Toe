@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/material_dynamic_tertiary99"
     tools:context=".GameActivity">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,7 +23,7 @@
         android:textSize="28sp"
         android:layout_margin="8dp"
         android:layout_gravity="center"
-        android:padding="8dp" />
+        android:padding="8dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -31,17 +37,26 @@
         android:letterSpacing="0.04"
         android:textColor="#009688"/>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        app:cardCornerRadius="30dp"
+        android:padding="40dp">
+
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:columnCount="3">
+        android:columnCount="3"
+        android:padding="10dp"
+        android:background="@color/material_dynamic_neutral90">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="0"
             android:id="@+id/btn_0"
             tools:text="X"/>
@@ -50,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="1"
             android:id="@+id/btn_1"
             tools:text="X"/>
@@ -59,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="2"
             android:id="@+id/btn_2"
             tools:text="X"/>
@@ -68,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="3"
             android:id="@+id/btn_3"
             tools:text="X"/>
@@ -77,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="4"
             android:id="@+id/btn_4"
             tools:text="X"/>
@@ -86,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="5"
             android:id="@+id/btn_5"
             tools:text="X"/>
@@ -95,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="6"
             android:id="@+id/btn_6"
             tools:text="X"/>
@@ -104,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="7"
             android:id="@+id/btn_7"
             tools:text="X"/>
@@ -113,12 +128,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="60sp"
+            android:textSize="70sp"
             android:tag="8"
             android:id="@+id/btn_8"
             tools:text="X"/>
 
     </GridLayout>
+</androidx.cardview.widget.CardView>
 
     <Button
         android:layout_width="wrap_content"
@@ -128,4 +144,23 @@
         android:text="Start Game"
         android:id="@+id/start_game_btn"/>
 
-</LinearLayout>
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/celebrationAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/celebrations_begin"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Design by\n Sangavat Group"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="13dp"/>
+
+</FrameLayout>

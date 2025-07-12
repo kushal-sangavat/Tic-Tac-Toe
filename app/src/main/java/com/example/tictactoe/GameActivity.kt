@@ -1,12 +1,11 @@
 package com.example.tictactoe
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.tictactoe.databinding.ActivityGameBinding
 
 
@@ -22,13 +21,12 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
         binding = ActivityGameBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        GameData.fetchGameModel()
+        gameModel = GameData.gameModel.value
+
+        if (gameModel?.gameId != "-1"){
+            GameData.fetchGameModel()
+        }
 
         binding.btn0.setOnClickListener(this)
         binding.btn1.setOnClickListener(this)
@@ -64,34 +62,54 @@ class GameActivity : AppCompatActivity(),View.OnClickListener {
 
             binding.startGameBtn.visibility = View.VISIBLE
 
-            binding.gameStatusText.text =
-                when(gameStatus){
-                    GameStatus.CREATED -> {
-                        binding.startGameBtn.visibility = View.INVISIBLE
-                        "Game ID :"+ gameId
-                    }
-                    GameStatus.JOINED -> {
-                        "Click on Start Game"
-                    }
-                    GameStatus.INPROGRESS -> {
-                        binding.startGameBtn.visibility = View.INVISIBLE
-                        when(GameData.myID){
-                            currentPlayer -> "Your Turn"
-                            else -> currentPlayer + " Turn"
-                        }
-                        currentPlayer + " Turn"
-                    }
-                    GameStatus.FINISHED -> {
-                        if(winner.isNotEmpty()) {
-                            when(GameData.myID){
-                                winner -> "You Won"
-                                else -> "You Lost"
-                            }
-                        }
-                        else {"DRAW"}
-                    }
-
+            binding.gameStatusText.text = when (gameStatus) {
+                GameStatus.CREATED -> {
+                    binding.startGameBtn.visibility = View.INVISIBLE
+                    "Game ID: $gameId"
                 }
+                GameStatus.JOINED -> {
+                    "Click on Start Game"
+                }
+                GameStatus.INPROGRESS -> {
+                    binding.startGameBtn.visibility = View.INVISIBLE
+                    if (gameId != "-1") {
+                        if (GameData.myID == currentPlayer) "Your Turn" else "$currentPlayer Turn"
+                    } else {
+                        "$currentPlayer Turn"
+                    }
+                }
+                GameStatus.FINISHED -> {
+                    if (winner.isNotEmpty()) {
+                        if (gameId != "-1") {
+                            if (GameData.myID == winner) {
+                                // Trigger animation
+                                try {
+                                    binding.celebrationAnimation.apply {
+                                        visibility = View.VISIBLE
+                                        playAnimation()
+                                        postDelayed({
+                                            cancelAnimation()
+                                            visibility = View.GONE
+                                        }, 2500)
+                                    }
+                                } catch (e: Exception) {
+                                    Log.e("Celebration", "Error: ${e.localizedMessage}")
+                                }
+                                "You Won \uD83D\uDE0E"
+                            } else {
+                                "You Lost \uD83D\uDE22"
+                            }
+                        } else {
+                            "$winner Won \uD83D\uDE0E"
+                        }
+                    } else {
+                        "DRAW \uD83D\uDE0F"
+                    }
+                }
+                else -> {
+                    ""
+                }
+            }
         }
     }
 

@@ -41,6 +41,16 @@ android {
 }
 
 dependencies {
+        // Import the Firebase BOM
+    implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
+
+    // Firebase Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx")
+
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("nl.dionsegijn:konfetti-xml:2.0.3")
+    implementation("nl.dionsegijn:konfetti-core:2.0.2")
+    implementation ("com.airbnb.android:lottie:6.6.6")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
