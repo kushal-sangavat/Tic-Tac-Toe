@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_tertiary99"
+    android:background="@color/material_dynamic_neutral90"
     tools:context=".GameActivity">
     
     <LinearLayout
@@ -18,9 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/playOfflineBtn"
-        android:text="@string/app_name"
-        android:textStyle="bold"
-        android:textSize="28sp"
+        android:text="Tic-Tac-Toe"
+        android:letterSpacing="0.03"
+        android:textStyle="bold|italic"
+        android:textSize="30sp"
+        android:textColor="@color/black"
         android:layout_margin="8dp"
         android:layout_gravity="center"
         android:padding="8dp"/>
@@ -40,7 +42,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="8dp"
+        android:elevation="12dp"
         app:cardCornerRadius="30dp"
         android:padding="40dp">
 
@@ -49,8 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:columnCount="3"
-        android:padding="10dp"
-        android:background="@color/material_dynamic_neutral90">
+        android:padding="10dp">
 
         <Button
             android:layout_width="match_parent"
@@ -142,6 +143,7 @@
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:text="Start Game"
+        android:elevation="12dp"
         android:id="@+id/start_game_btn"/>
 
     </LinearLayout>
